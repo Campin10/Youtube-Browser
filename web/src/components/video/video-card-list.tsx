@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { Video } from "../../types/video.interface";
 import { getVideoIdFromUrl } from "../../utils";
@@ -35,4 +36,4 @@ const VideoCardList = (props: Props) => {
   );
 };
 
-export default VideoCardList;
+export default memo(VideoCardList);

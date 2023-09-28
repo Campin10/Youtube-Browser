@@ -42,11 +42,13 @@ export const videoReducer = createReducer(VIDEO_INITIAL_STATE, (builder) => {
     .addCase(CREATE_VIDEO_API, (state) => ({
       ...state,
       loading: true,
+      videos: [],
+      error: null,
     }))
     .addCase(CREATE_VIDEO_SUCCESS_API, (state, action: any) => ({
       ...state,
       loading: false,
-      videos: [...state.videos, action.payload],
+      videos: action.payload && [...state.videos, action.payload],
     }))
     .addCase(CREATE_VIDEO_FAILURE_API, (state, action: any) => ({
       ...state,
