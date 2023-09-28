@@ -12,7 +12,7 @@ export const VideoCardStyled = styled(Card)(() => ({
   borderRadius: "4px",
   display: "auto",
   alignItems: "auto",
-  justifyContent: "auto",
+  justifyContent: "auto"
 }));
 
 export const VideoCardListStyled = styled(Grid)(() => ({

@@ -27,6 +27,16 @@ export const TitleNavigation = styled(Typography)(() => ({
   fontWeight: 700,
 }));
 
+export const HomeTitle = styled(Typography)(() => ({
+  fontFamily: "SF Pro Display",
+  paddingBottom: "10px",
+  color: "#6B7280",
+  fontSize: "14px",
+  lineHeight: "20px",
+  fontWeight: 500,
+  marginTop: '4px'
+}));
+
 export const GeneralContainer = styled(Box)(() => ({
   display: "flex",
   gap: "5px",

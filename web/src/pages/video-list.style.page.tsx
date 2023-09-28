@@ -6,6 +6,7 @@ import {
 export const Container = styled(Box)(() => ({
   height: "100%",
   minHeight: "100vh",
+  width: '100%',
   backgroundColor: "#1F1F1F",
 }));
 

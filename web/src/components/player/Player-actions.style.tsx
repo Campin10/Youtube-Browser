@@ -10,21 +10,21 @@ export const MainContainer = styled(Box)(() => ({
 }));
 
 export const BackIcon = styled(ChevronLeftIcon)(() => ({
-  color: "#FFFFFF",
+  color: "#8c8c8c",
   fontSize: "30px",
 }));
 
 export const NextIcon = styled(ChevronRightIcon)(() => ({
-  color: "#FFFFFF",
+  color: "#8c8c8c",
   fontSize: "30px",
 }));
 
 export const PlayIcon = styled(PlayCircleIcon)(() => ({
-  color: "#FFFFFF",
+  color: "#8c8c8c",
   fontSize: "30px",
 }));
 
 export const PauseIcon = styled(PauseCircleIcon)(() => ({
-  color: "#FFFFFF",
+  color: "#8c8c8c",
   fontSize: "30px",
 }));
