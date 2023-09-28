@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { VideoState } from "../../types/video.interface";
 import {
+  CLEAR_API_RESPONSE,
   CREATE_VIDEO_API,
   CREATE_VIDEO_FAILURE_API,
   CREATE_VIDEO_SUCCESS_API,
@@ -18,6 +19,15 @@ import { VIDEO_INITIAL_STATE, VIDEO_STORE_NAME } from "./video.state";
 
 export const videoReducer = createReducer(VIDEO_INITIAL_STATE, (builder) => {
   builder
+    .addCase(CLEAR_API_RESPONSE, (state: VideoState) => {
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        success: false,
+        deleted: false
+      };
+    })
     .addCase(FETCH_VIDEOS_API, (state: VideoState) => {
       return {
         ...state,
@@ -42,13 +52,13 @@ export const videoReducer = createReducer(VIDEO_INITIAL_STATE, (builder) => {
     .addCase(CREATE_VIDEO_API, (state) => ({
       ...state,
       loading: true,
-      videos: [],
       error: null,
     }))
     .addCase(CREATE_VIDEO_SUCCESS_API, (state, action: any) => ({
       ...state,
       loading: false,
-      videos: action.payload && [...state.videos, action.payload],
+      success: true,
+      videos: [...state.videos, action.payload],
     }))
     .addCase(CREATE_VIDEO_FAILURE_API, (state, action: any) => ({
       ...state,
@@ -62,6 +72,7 @@ export const videoReducer = createReducer(VIDEO_INITIAL_STATE, (builder) => {
     .addCase(UPDATE_VIDEO_SUCCESS_API, (state, action: any) => ({
       ...state,
       loading: false,
+      success: true,
       videos: state.videos.map((video) => {
         if (video.id === action.payload.id) {
           return {
@@ -85,6 +96,7 @@ export const videoReducer = createReducer(VIDEO_INITIAL_STATE, (builder) => {
     .addCase(DELETE_VIDEO_SUCCESS_API, (state, action: any) => ({
       ...state,
       loading: false,
+      deleted: true,
       videos: state.videos.filter((vd) => vd.id !== action.payload.id),
     }))
     .addCase(DELETE_VIDEO_FAILURE_API, (state, action: any) => ({

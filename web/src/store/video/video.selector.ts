@@ -14,3 +14,18 @@ export const getVideoState = createSelector(
   getBusinessState,
   (video: VideoState) => video && video
 );
+
+export const getApiSuccess = createSelector(
+  getBusinessState,
+  (video: VideoState) => video && video.success
+);
+
+export const getApiError = createSelector(
+  getBusinessState,
+  (video: VideoState) => video && video.error
+);
+
+export const getApiDeleted = createSelector(
+  getBusinessState,
+  (video: VideoState) => video && video.deleted
+);

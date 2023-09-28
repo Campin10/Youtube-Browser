@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 
 import { PersistGate } from "redux-persist/integration/react";
@@ -9,9 +8,8 @@ import store from "./store";
 
 import Root from "./pages";
 
-import config from "./config";
-import { theme } from "./theme";
 import { ThemeProvider } from "@mui/material";
+import { theme } from "./theme";
 function App() {
   return (
     <ThemeProvider theme={theme}>

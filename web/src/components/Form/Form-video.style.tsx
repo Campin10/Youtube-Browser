@@ -12,7 +12,7 @@ export const DialogVideo = styled(Dialog)(() => ({
 }));
 
 export const FormLabel = styled(Typography)(() => ({
-  color: "white",
+  color: "#FFFF",
 }));
 
 

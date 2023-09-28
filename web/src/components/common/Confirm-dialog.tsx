@@ -2,12 +2,13 @@ import {
   Button,
   DialogActions,
   DialogContent,
-  DialogTitle
+  DialogTitle,
 } from "@mui/material";
-import { useDispatch } from "react-redux";
-import {
-  deleteVideo
-} from "../../store/video/video.action";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { clearResponse, deleteVideo } from "../../store/video/video.action";
+import { getApiDeleted } from "../../store/video/video.selector";
 import { Video } from "../../types/video.interface";
 import { DialogVideo } from "../Form/Form-video.style";
 
@@ -26,6 +27,26 @@ const ConfirmDelete = (props: Props) => {
     dispatch(deleteVideo({ ...video, ...values }));
     close();
   };
+
+  const deleted = useSelector(getApiDeleted);
+
+  useEffect(() => {
+    if (deleted) {
+      console.log('here2', deleted)
+      toast.success("video deleted!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+
+    dispatch(clearResponse());
+  }, [deleted]);
 
   return (
     <DialogVideo open={open} onClose={close} fullWidth>

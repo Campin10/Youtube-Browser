@@ -54,14 +54,16 @@ export const CardFooterContainer = styled(Typography)(() => ({
 export const EditIcon = styled(ModeEditOutlineIcon)(() => ({
   color: 'white',
   margin: 'auto',
-  fontSize: '20px'
+  fontSize: '20px',
+  cursor: 'pointer'
 }));
 
 
 export const DeleteIcon = styled(RemoveCircleIcon)(() => ({
   color: 'white',
   margin: 'auto',
-  fontSize: '20px'
+  fontSize: '20px',
+  cursor: 'pointer'
 }));
 
 

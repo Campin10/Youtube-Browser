@@ -22,6 +22,8 @@ export interface VideoState {
     videos: Video[];
     loading: boolean;
     error: ErrorResponse | null;
+    success: boolean;
+    deleted: boolean;
 }
 
 export interface VideoAction {
